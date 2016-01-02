@@ -52,7 +52,7 @@ namespace GrindAgesGame
             _design.basic_resources.Add(new Resource(1, "jagody", 5, 0));
 
 
-
+            //coś jeszcze
 
         }
 
