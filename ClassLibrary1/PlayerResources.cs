@@ -50,7 +50,7 @@ namespace ClassResource
         int ProduceTime;
         int[] ReqResources;
 
-        public ClickResource(int id, string name, int value, int multiplier, int produceTime, int[] reqResources) 
+        public ClickResource(int id, string name, UInt64 value, UInt64 multiplier, int produceTime, int[] reqResources) 
             : base(id, name, value, multiplier)
         {
                 if (id < 200)
@@ -60,13 +60,13 @@ namespace ClassResource
                 this.Name = name;
                 this.ID = id;
                 this.Value = value;
-                this.Multiplier = multiplier
+                this.Multiplier = multiplier;
                 this.ProduceTime = produceTime;
                 this.ReqResources = reqResources;
         }
 
-        private ClickResource Validate(int id, string name, int value, int power, int produceTime, int[] reqResources) 
-            : base(id, name, value, power)
+      //  private ClickResource Validate(int id, string name, int value, int power, int produceTime, int[] reqResources) 
+      //      : base(id, name, value, power)
     }
 
     //lista podstawowych zasobów

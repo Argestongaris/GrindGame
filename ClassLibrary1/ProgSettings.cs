@@ -18,7 +18,8 @@ namespace ClassResource
     public static class GameMath
     {
         public bool UIntPlus(UInt64 a_value, UInt64 b_value)
-        {   bool a_flag = false;
+        {   
+            bool a_flag = false;
             bool b_flag = false;
             UInt64 temp = UInt64.MaxValue/2;
             if (a_value > temp)
@@ -50,6 +51,7 @@ namespace ClassResource
                     return false;
                 }
             }
+            return false;
         }
 
         public bool UIntMinus(UInt64 a_value, UInt64 b_value)
