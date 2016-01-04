@@ -52,8 +52,6 @@ namespace GrindAgesGame
             _design.basic_resources.Add(new Resource(1, "jagody", 5, 0));
 
 
-            //coś jeszcze
-
         }
 
         private void GrindAges_Load(object sender, EventArgs e)
@@ -63,6 +61,9 @@ namespace GrindAgesGame
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ResourcesForm FormResources = new ResourcesForm();
+            FormResources.Location = this.Location;
+            FormResources.Show(this);
             
         }
     }

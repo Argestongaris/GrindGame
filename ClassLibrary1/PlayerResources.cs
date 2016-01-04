@@ -12,27 +12,35 @@ namespace ClassResource
     {
         public string Name;
         public int ID;
-        public int Value;               //1-999
-        public int Power;               //quantity = Value * 10 ^ Power
+        public UInt64 Value;               //1-999
+        public UInt64 Multiplier;               //
         //jak zrobić mechanizm naliczania i zmieniania potęg?
 
-        public Resource(int id, string name, int value, int power) 
+        public Resource(int id, string name, UInt64 value, UInt64 multiplier) 
         {
             this.Name = name;
             this.ID = id;
             this.Value = value;
-            this.Power = power;
+            this.Multiplier = multiplier;
         }
+
+         private Resource Validate(int id, string name, UInt64 value, UInt64 multiplier) 
+         {
+             if ((id<=ProgSettings.ResourcesMaxID) && (id>=ProgSettings.ResourcesMinID) && (name!=string.Empty) )
+	        {
+		 
+	        }
+         }
     }
 
     //lista podstawowych zasobów
-    public class BasicResources
+    public class AllResources
     {
-        public List<Resource> basic_resources {get; set;}
+        public List<Resource> all_resources {get; set;}
 
-        public BasicResources() 
+        public AllResources() 
         {
-            this.basic_resources = new List<Resource>();
+            this.all_resources = new List<Resource>();
         }
     }
 
@@ -42,21 +50,27 @@ namespace ClassResource
         int ProduceTime;
         int[] ReqResources;
 
-        public ClickResource(int id, string name, int value, int power, int produceTime, int[] reqResources) 
-            : base(id, name, value, power)
+        public ClickResource(int id, string name, int value, int multiplier, int produceTime, int[] reqResources) 
+            : base(id, name, value, multiplier)
         {
-            // ? if (id >= 200)
+                if (id < 200)
+                {
+                    id=0;
+                }
                 this.Name = name;
                 this.ID = id;
                 this.Value = value;
-                this.Power = power;
+                this.Multiplier = multiplier
                 this.ProduceTime = produceTime;
                 this.ReqResources = reqResources;
         }
+
+        private ClickResource Validate(int id, string name, int value, int power, int produceTime, int[] reqResources) 
+            : base(id, name, value, power)
     }
 
     //lista podstawowych zasobów
-    public class ClickListResources
+    /*public class ClickListResources
     {
         public List<ClickResource> click_resources {get; set;}
 
@@ -64,6 +78,6 @@ namespace ClassResource
         {
             this.click_resources = new List<ClickResource>();
         }
-    }
+    }*/
 
 }
